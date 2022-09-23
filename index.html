@@ -1,34 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | IP Address Tracker</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  IP Address Tracker
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css" />
 
-  Search for any IP address or domain
-
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <title>Frontend Mentor | IP Address Tracker</title>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="container">
+        <h1 class="page-title">IP Address Tracker</h1>
+        <div class="search-bar">
+          <input
+            id="search-bar-input"
+            class="search-bar__input"
+            type="search"
+            placeholder="Search for any IP address or domain"
+          />
+          <button
+            id="search-bar-submit-btn"
+            class="search-bar__submit-btn"
+            type="button"
+            aria-label="search"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+              <path
+                fill="none"
+                stroke="#FFF"
+                stroke-width="3"
+                d="M2 1l6 6-6 6"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="ip-info-container">
+          <div class="ip-info-container__item">
+            <h2 class="ip-info-container__heading">IP Address</h2>
+            <p id="ip-address-text" class="ip-info-container__text">
+              192.212.174.101
+            </p>
+          </div>
+          <div class="ip-info-container__item">
+            <h2 class="ip-info-container__heading">Location</h2>
+            <p id="location-text" class="ip-info-container__text">
+              Brooklyn, NY 10001
+            </p>
+          </div>
+          <div class="ip-info-container__item">
+            <h2 class="ip-info-container__heading">Timezone</h2>
+            <p id="timezone-text" class="ip-info-container__text">UTC -05:00</p>
+          </div>
+          <div class="ip-info-container__item">
+            <h2 class="ip-info-container__heading">ISP</h2>
+            <p id="isp-text" class="ip-info-container__text">SpaceX Starlink</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="map" class="map"></div>
+    </main>
+  </body>
 </html>
