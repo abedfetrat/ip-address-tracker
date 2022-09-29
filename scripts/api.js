@@ -10,6 +10,25 @@ function removeProtocol(url) {
     return url;
 }
 
+function fetchIPInfoByPublicIP() {
+    const urlToFetch = BASE_API_ENDPOINT + 'country,city' + '?apiKey=' + API_KEY;
+    return new Promise((resolve, reject) => {
+        fetch(urlToFetch).then(response => {
+            if (response.ok) {
+                return response.json();
+            } else if (response.status == 400) {
+                throw new Error('Could not get information for that IP address. Please check that it is correct.');
+            } else {
+                throw new Error('Something wen\'t wrong. Could not not get IP address information.');
+            }
+        }).then(jsonResponse => {
+            resolve(jsonResponse);
+        }).catch(error => {
+            reject(error);
+        });
+    });
+}
+
 function fetchIPInfoByIP(ip) {
     const searchParams = '&ipAddress=' + ip;
     const urlToFetch = BASE_API_ENDPOINT + 'country,city' + '?apiKey=' + API_KEY + searchParams;
@@ -52,12 +71,12 @@ function fetchIPInfoByDomain(domain) {
 }
 
 function fetchIPInfo(query) {
-    if (query.method === METHOD_IP) {
+    if (query && query.method === METHOD_IP) {
         return fetchIPInfoByIP(query.value);
-    } else if (query.method === METHOD_DOMAIN) {
+    } else if (query && query.method === METHOD_DOMAIN) {
         return fetchIPInfoByDomain(query.value);
     } else {
-        return;
+        return fetchIPInfoByPublicIP();
     }
 }
 

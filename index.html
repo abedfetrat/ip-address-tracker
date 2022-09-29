@@ -19,8 +19,23 @@
       rel="stylesheet"
     />
 
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin=""
+    />
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Leaflet JS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+      integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+      crossorigin=""
+    ></script>
 
     <!-- Scripts -->
     <script src="scripts/main.js" type="module"></script>
@@ -44,7 +59,12 @@
             class="search-bar__submit-btn"
             aria-label="search"
           >
-            <svg class="search-bar__submit-btn-icon" xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+            <svg
+              class="search-bar__submit-btn-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="11"
+              height="14"
+            >
               <path
                 fill="none"
                 stroke="#FFF"
@@ -58,23 +78,19 @@
         <div class="ip-info-container">
           <div class="ip-info-container__item">
             <h2 class="ip-info-container__heading">IP Address</h2>
-            <p id="ip-address-text" class="ip-info-container__text">
-              192.212.174.101
-            </p>
+            <p id="ip-address-text" class="ip-info-container__text">&nbsp;</p>
           </div>
           <div class="ip-info-container__item">
             <h2 class="ip-info-container__heading">Location</h2>
-            <p id="location-text" class="ip-info-container__text">
-              Brooklyn, NY 10001
-            </p>
+            <p id="location-text" class="ip-info-container__text">&nbsp;</p>
           </div>
           <div class="ip-info-container__item">
             <h2 class="ip-info-container__heading">Timezone</h2>
-            <p id="timezone-text" class="ip-info-container__text">UTC -05:00</p>
+            <p id="timezone-text" class="ip-info-container__text">&nbsp;</p>
           </div>
           <div class="ip-info-container__item">
             <h2 class="ip-info-container__heading">ISP</h2>
-            <p id="isp-text" class="ip-info-container__text">SpaceX Starlink</p>
+            <p id="isp-text" class="ip-info-container__text">&nbsp;</p>
           </div>
         </div>
       </div>

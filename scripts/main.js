@@ -1,9 +1,11 @@
 import { isIPAddress, isDomain } from './validators.js';
 import { METHOD_IP, METHOD_DOMAIN, fetchIPInfo } from './api.js';
+import { setLocation } from './map.js';
 
 const searchForm = document.querySelector('form[name="search"]');
 const searchInput = searchForm.firstElementChild;
 const searchButton = searchForm.lastElementChild;
+
 searchForm.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -22,6 +24,7 @@ searchForm.addEventListener('submit', e => {
         searchInput.reportValidity();
     }
 });
+
 searchForm.addEventListener('input', _ => {
     searchInput.setCustomValidity('');
 })
@@ -31,6 +34,10 @@ function retriveIPInfo(query) {
     fetchIPInfo(query).then(ipInfo => {
         setLoading(false)
         populateUI(ipInfo);
+        setLocation({
+            lat: ipInfo.location.lat,
+            lng: ipInfo.location.lng
+        });
     }).catch(error => {
         setLoading(false)
         displayError(error.message);
@@ -62,3 +69,5 @@ function setLoading(loading) {
         searchButton.classList.remove('loading');
     }
 }
+
+retriveIPInfo();
