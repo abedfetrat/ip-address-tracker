@@ -40,7 +40,7 @@ function retriveIPInfo(query) {
         });
     }).catch(error => {
         setLoading(false)
-        displayError(error.message);
+        displayError(error?.message);
     });
 }
 
