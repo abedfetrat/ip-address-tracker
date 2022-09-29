@@ -24,7 +24,8 @@ function isIPAddress(str) {
         return false;
     }
 }
-
+// Valid domain can be 63 characters in length, consisting of alphanumerics A-Z, numbers 0-9 and hypens.
+// It can not however start with or end with hyphen. 
 function isDomain(str) {
     if (!str || typeof str != 'string' || str.length === 0) return false;
 
